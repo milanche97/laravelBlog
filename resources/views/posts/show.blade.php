@@ -21,6 +21,7 @@
         </style>
     </head>
     <body class="antialiased">
-        <h1>Welcome</h1>
+        <h1>{{ $post->title }}</h1>
+            <p>{{ $post->body }}</p>
     </body>
 </html>
