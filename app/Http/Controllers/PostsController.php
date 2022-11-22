@@ -13,7 +13,7 @@ class PostsController extends Controller
     }
 
     public function show ($id){
-        $post = Post::find($id);
+        $post = Post::with('comments')->find($id);
 
         return view('posts.show', compact('post'));
     }
@@ -30,7 +30,7 @@ class PostsController extends Controller
         $this -> validate(
             request(),
             ['title' => 'required|max:20',
-            'body' => 'required'                    //za ogranicenja npr koliko moze karaktera
+            'body' => 'required'                    //za ogranicenja npr koliko moze
             ]
         );
         

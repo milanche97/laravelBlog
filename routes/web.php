@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use  App\Http\Controllers\PostsController;
-
+use  App\Http\Controllers\CommentsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,4 +27,7 @@ Route::post('/posts', [PostsController::class, 'store']);
 
 
 Route::get('/posts/{id}', [PostsController::class, 'show'] )->name('single-post');
+
+
+Route::post('/posts/{id}/comments', [CommentsController::class, 'store']);
 
