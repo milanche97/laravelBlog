@@ -27,6 +27,12 @@ class PostsController extends Controller
         // $post ->body = request('body');
          
         // $post->save();
+        $this -> validate(
+            request(),
+            ['title' => 'required|max:20',
+            'body' => 'required'                    //za ogranicenja npr koliko moze karaktera
+            ]
+        );
         
         Post::create([
             'title' => request('title'),
